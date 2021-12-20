@@ -6,8 +6,10 @@
 #include "SpinGenApi/SpinnakerGenApi.h"
 
 // OpenCV
-#include <cv.h>
+#include "opencv2/opencv.hpp"
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/core/core.hpp>
+
 
 // ROS
 #include <ros/ros.h>
@@ -23,7 +25,7 @@
 // Standard Libs
 #include <iostream>
 #include <fstream>
-#include <sstream> 
+#include <sstream>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/time.h>
@@ -36,7 +38,7 @@
 #include <signal.h>
 #include <cstdlib>
 
-#include <queue> 
+#include <queue>
 #include <boost/thread.hpp>
 
 #include <unistd.h>
