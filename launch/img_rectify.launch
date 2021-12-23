@@ -1,0 +1,26 @@
+<launch>
+
+<!-- start the manager -->
+
+  <node pkg="nodelet" type="nodelet" name="image_proc"  args="manager"/>
+
+
+  <!-- Color rectified images -->
+  <node pkg="nodelet" type="nodelet" name="cam0_rect" args="load image_proc/rectify image_proc">
+    <remap from="camera_info" to="/camera_array/cam0/camera_info" />
+    <remap from="image_mono" to="/camera_array/cam0/image_raw" />
+    <remap from="image_rect" to="/camera_array/cam0/image_rect" />
+  </node>  
+
+  <!-- Nodelets to crop and decimate to improve rate -->
+  <node pkg="nodelet" type="nodelet" name="dec_cam0" args="load image_proc/crop_decimate image_proc">
+ 	  <param name="x_offset" type="int" value="0" />
+	  <param name="y_offset" type="int" value="0" />
+	  <!-- remap input topics -->
+	  <remap from="camera/image_raw" to="/camera_array/cam0/image_rect"/>
+	  <remap from="camera_info" to="/camera_array/cam0/camera_info"/>
+  </node> 
+
+</launch>
+
+
