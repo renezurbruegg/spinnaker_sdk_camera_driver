@@ -1,8 +1,9 @@
 cam_ids:
   - 17371585
+  - 17371580
 cam_aliases:
-  - cam0
-master_cam: 17371585
+  - front_right_cam
+  - front_left_cam
 skip: 20
 delay: 0.25
 
@@ -13,28 +14,36 @@ delay: 0.25
 #binning: 1 # going from 2 to 1 requires cameras to be unplugged and replugged
 color: true
 #frames: 50
-#soft_framerate: 20 # this frame rate reflects to the software frame rate set using ros::rate
+soft_framerate: 2 # this frame rate reflects to the software frame rate set using ros::rate
+exposure_time: 0
+skip: 5
 #exp: 997
 #to_ros: true  #When to_ros is not selected, but live is selected, pressing 'space' exports single image to ROS
 
 #Camera info message details
 distortion_model: plumb_bob
-image_height: 1536 
-image_width: 2048
+image_height: 768 
+image_width: 1024
 distortion_coeffs:
+  -  [-0.1745121110844244, 0.040876889127984, 0.0005815434331925698, 0.0007390437859278217]
   -  [-0.1745121110844244, 0.040876889127984, 0.0005815434331925698, 0.0007390437859278217]
 
 #specified as [fx  0 cx 0 fy cy 0  0  1]
 intrinsic_coeffs:
-  - [1009.3195405025799, 0.0, 1033.9656197160898, 0.0, 1008.102051967283, 760.511107792634, 0.0, 0.0, 1.0]
+  - [520.3195405025799, 0.0, 515.9656197160898, 0.0, 521.102051967283, 398.511107792634, 0.0, 0.0, 1.0]
+  - [520.3195405025799, 0.0, 515.9656197160898, 0.0, 521.102051967283, 398.511107792634, 0.0, 0.0, 1.0]
 rectification_coeffs:
   - [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  - [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
 projection_coeffs:
-  - [837.9456787109375, 0.0, 1039.8850405378762, 0.0, 0.0, 901.6812744140625, 759.8640660261517, 0.0, 0.0, 0.0, 1.0, 0.0]
+  - [443.9456787109375, 0.0, 514.8850405378762, 0.0, 0.0, 470.6812744140625, 401.8640660261517, 0.0, 0.0, 0.0, 1.0, 0.0]
+  - [443.9456787109375, 0.0, 514.8850405378762, 0.0, 0.0, 470.6812744140625, 401.8640660261517, 0.0, 0.0, 0.0, 1.0, 0.0]
 flip_horizontal:
+  - false
   - false
 
 flip_vertical:
+  - false
   - false
 
 region_of_interest:
